@@ -12,6 +12,20 @@ OpenBLAS is an optimized BLAS library based on GotoBLAS2 1.13 BSD version.
 
 Please read the documentation on the OpenBLAS wiki pages: <http://github.com/xianyi/OpenBLAS/wiki>.
 
+## Test 
+info:
+https://github.com/xianyi/OpenBLAS/wiki/User-Manual#compile-the-library
+
+(1)Call BLAS Fortran interface
+This example shows calling dgemm Fortran interface in C. https://gist.github.com/xianyi/5780018
+run
+```
+gcc -o test test.c /opt/OpenBLAS/lib/libopenblas.a -lpthread
+./time_dgemm 1000 1000 1000
+
+```
+
+
 ## Binary Packages
 
 We provide official binary packages for the following platform:
