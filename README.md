@@ -26,7 +26,8 @@ As you can see, I prefer to put my OpenBLAS install in `/opt`, so it’s out of 
 
 Finally, you have to let your system know about these new libraries. Add a file to `/etc/ld.so.conf.d/` called openblas.conf, containing the path to your new libraries (/opt/openblas/lib). Then run `sudo ldconfig`.
 
-## Test 
+## Test : Call CBLAS interface
+
 info:
 https://github.com/xianyi/OpenBLAS/wiki/User-Manual#compile-the-library
 
@@ -37,6 +38,10 @@ run
 gcc -o test test.c /opt/OpenBLAS/lib/libopenblas.a -lpthread
 ./time_dgemm 1000 1000 1000
 
+```
+(2) This example shows calling cblas_dgemm in C. https://gist.github.com/xianyi/6930656
+```bash
+gcc -o test_cblas_open test_cblas_dgemm.c -I /your_path/OpenBLAS/include/ -L/your_path/OpenBLAS/lib -lopenblas -lpthread -lgfortran
 ```
 
 
