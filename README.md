@@ -11,6 +11,20 @@ AppVeyor: [![Build status](https://ci.appveyor.com/api/projects/status/09sohd35n
 OpenBLAS is an optimized BLAS library based on GotoBLAS2 1.13 BSD version.
 
 Please read the documentation on the OpenBLAS wiki pages: <http://github.com/xianyi/OpenBLAS/wiki>.
+## Install
+[link](https://hunseblog.wordpress.com/2014/09/15/installing-numpy-and-openblas/)
+
+```bash
+cd ~/src
+git clone https://github.com/xianyi/OpenBLAS
+cd OpenBLAS
+make FC=gfortran
+sudo make PREFIX=/opt/openblas install
+```
+
+As you can see, I prefer to put my OpenBLAS install in `/opt`, so it’s out of the way of things I install with apt-get.
+
+Finally, you have to let your system know about these new libraries. Add a file to `/etc/ld.so.conf.d/` called openblas.conf, containing the path to your new libraries (/opt/openblas/lib). Then run `sudo ldconfig`.
 
 ## Test 
 info:
